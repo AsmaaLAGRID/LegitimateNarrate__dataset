@@ -63,7 +63,25 @@ The dataset is divided into three subsets and stored in the `data/` directory:
 | `legitimacy_val_.json`   | Validation set (~10%)               |
 | `legitimacy_test_.json`  | Test set (~10%)                     |
 
+---
 
+## 🆕 Augmented Data
+
+In addition to the original dataset files, the `data/` directory also includes an **augmentation file** generated using Bing Chat with varied tones (e.g., professional, casual, informative). This file is intended to support research in **data augmentation**, **style variation**, and **robustness evaluation**.
+
+### 📄 File: `augmentation.csv`
+
+| Column     | Description |
+|------------|-------------|
+| `augmented`| The reformulated sentence generated in a different tone or style. |
+| `original` | The original sentence from the dataset. |
+| `category` | Label indicating whether the original sentence expresses legitimation mechanism (e.g., `1`) or not (`0`). |
+
+### 🧪 Example Row
+
+`augmented:` The product lifecycle has been extended to support an environmentally responsible approach.
+`original:` The product life cycle is extended, allowing you to enter into an eco-responsible approach.
+`category:` 1
 
 ## 🔍 Applications
 
@@ -83,3 +101,15 @@ The **LegitimNarrate** dataset supports a wide range of research and development
 
 - **AI for Social Impact and Communication Studies**  
   Analyze how entrepreneurs construct legitimacy through language, identity, and associative strategies in digital platforms.
+
+- **Style-based Data Augmentation**  
+  Use the `augmentation.csv` file to expand training data with reformulated sentences across diverse tones (e.g., professional, casual, informative), improving generalization and robustness.
+
+- **Tone-aware Sentence Classification**  
+  Investigate how different writing styles affect the perception or detection of legitimation strategies in narratives.
+
+- **Paraphrase Detection and Semantic Similarity**  
+  Use aligned `original` and `augmented` pairs for developing and testing models that detect meaning preservation across stylistic shifts.
+
+- **Generated Text Detection**  
+  Train models to distinguish between human-written and machine-generated sentences, using the `augmentation.csv` file as a labeled dataset for generation detection tasks.
